@@ -1,6 +1,6 @@
 # TRScore
 
-## source codes: https://github.com/lcmj520/TRScore
+## source codes: https://github.com/BioinformaticsCSU/TRScore
 ## What is TRScore?
 ** TRScore is a scoring method for protein-protein docking, which combined 3D convolutional ResNet and physicochemical features of protein atoms.**
 
@@ -16,15 +16,20 @@ TRScore was extensively evaluated on diverse test sets including the ZDOCK bench
 
 
 ## data preprocessing:
-![Fig_1](https://github.com/lcmj520/TRScore/blob/master/Fig_1.png)
+![Fig_1](https://github.com/BioinformaticsCSU/TRScore/blob/master/Fig_1.png)
 
 ## Architecture of TRScore:
-![Fig_2](https://github.com/lcmj520/TRScore/blob/master/Fig_2.png)
+![Fig_2](https://github.com/BioinformaticsCSU/TRScore/blob/master/Fig_2.png)
 
-## Results on DockGround decoys set:
-![Fig_3](https://github.com/lcmj520/TRScore/blob/master/Fig_3.png)
+## Results on BM5-43 test set:
+![Fig_3](https://github.com/BioinformaticsCSU/TRScore/blob/master/Fig_3.png)
 
-(Only performance in DockGround decoys set, more details in paper please)
+(Only performance in BM5-43 test set, more details in paper please)
+
+## Results on DockGround test set:
+![Fig_4](https://github.com/BioinformaticsCSU/TRScore/blob/master/Fig_4.png)
+
+(Only performance in DockGround test set, more details in paper please)
 
 ## Reference:
 ```
@@ -43,6 +48,8 @@ DOVE: https://github.com/kiharalab/DOVE/
 * src/BuildModel.py: source codes of model structure of TRScore.
 * src/prepare.py: to voxelize protein-protein interface from input decoys (PDB files) into 3D grid labeled by the number of atoms in different physicochemical classes from AtomTypeDictionary.py. Additionally, these 3D grids (NPZ files) will be stored in working directory.
 * src/predict.py: source codes of predicting functions used in main.py.
+* examples: the folder stored some examples.
+* models: the folder stored 4-fold models trained by our lab.
 
 # Usage
 ```
@@ -59,7 +66,7 @@ prepare.py:
 ```
 ## 1. predict all PDB files in examples/complexes
 ```
-python main.py -F examples/complexes -M models/model.pt -W examples/NPZ
+python main.py -F examples/complexes -M models/model1.pt -W examples/NPZ
 ```
 ## 2. prepare your own NPZ files
 ```
